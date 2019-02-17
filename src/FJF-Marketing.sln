@@ -15,15 +15,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data Access Layer", "4 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Data Storage Layer", "5 - Data Storage Layer", "{BA17CD96-39F2-41F8-946F-A3D0C56A9574}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FJFMarketing", "FJFMarketing\FJFMarketing.csproj", "{F297A7DF-B664-4D45-9811-5A928324ADA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJFMarketing", "FJFMarketing\FJFMarketing.csproj", "{F297A7DF-B664-4D45-9811-5A928324ADA3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJFMarketing.WindowsService", "FJFMarketing.WindowsService\FJFMarketing.WindowsService.csproj", "{98F96253-6F92-4622-A012-182681A1E0AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FJFMarketing.Models", "FJFMarketing.Models\FJFMarketing.Models.csproj", "{6FAC0148-84AD-4CAF-99F5-BFCAE5292B58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJFMarketing.Models", "FJFMarketing.Models\FJFMarketing.Models.csproj", "{6FAC0148-84AD-4CAF-99F5-BFCAE5292B58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FJFMarketing.Repository.Dapper", "FJFMarketing.Repository.Dapper\FJFMarketing.Repository.Dapper.csproj", "{D7209968-207E-4C40-9547-600D73D80F91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJFMarketing.Repository.Dapper", "FJFMarketing.Repository.Dapper\FJFMarketing.Repository.Dapper.csproj", "{D7209968-207E-4C40-9547-600D73D80F91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FJFMarketing.Repository.EF", "FJFMarketing.Repository.EF\FJFMarketing.Repository.EF.csproj", "{E8E2B0DA-44FD-41D4-B5B0-6FFD07656185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FJFMarketing.Repository.EF", "FJFMarketing.Repository.EF\FJFMarketing.Repository.EF.csproj", "{E8E2B0DA-44FD-41D4-B5B0-6FFD07656185}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "FJFMarketing.Database", "FJFMarketing.Database\FJFMarketing.Database.sqlproj", "{716AF203-1D40-49A2-8B18-421593E1A134}"
 EndProject
