@@ -6,6 +6,8 @@ namespace FJFMarketing.Repository.EF
     public class UnitOfWork : IUnitOfWork
     {
         public IItemRepository Items { get; private set; }
+        public IPayableRepository Payables { get; private set; }
+        public IPurchaseRepository Purchases { get; private set; }
 
         private readonly ItemContext _context;
 

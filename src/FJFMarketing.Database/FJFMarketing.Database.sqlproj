@@ -65,8 +65,14 @@
     <Build Include="Schemas\dbo\ItemCategories.sql" />
     <Build Include="Schemas\dbo\ItemSections.sql" />
     <Build Include="Schemas\dbo\ItemUnits.sql" />
+    <Build Include="Schemas\dbo\Payables.sql" />
+    <Build Include="Schemas\dbo\Purchases.sql" />
+    <Build Include="Schemas\dbo\PurchaseItems.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FJFMarketing.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="FJFMarketing.Database.refactorlog" />
   </ItemGroup>
 </Project>

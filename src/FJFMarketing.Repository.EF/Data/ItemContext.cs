@@ -1,8 +1,5 @@
 ﻿using FJFMarketing.Models.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FJFMarketing.Repository.EF.Data
 {
@@ -22,5 +19,8 @@ namespace FJFMarketing.Repository.EF.Data
         }
 
         public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<Payable> Payables { get; set; }
+        public virtual DbSet<Payable> Purchases { get; set; }
+        public virtual DbSet<PurchaseItem> PurchaseItems { get; set; }
     }
 }

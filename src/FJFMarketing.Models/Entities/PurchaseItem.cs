@@ -2,10 +2,11 @@
 
 namespace FJFMarketing.Models.Entities
 {
-    public class PurchaseDetail
+    public class PurchaseItem
     {
         public Guid Id { get; set; }
-        public Item Item { get; set; }
+        public Guid ItemId { get; set; }
+        public decimal UnitPrice { get; set; }
         public int Qty { get; set; }
     }
 }
