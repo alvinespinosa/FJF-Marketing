@@ -46,6 +46,8 @@ namespace FJFMarketing
                 .AddTransient<IUnitOfWork, UnitOfWork>()
                 .AddTransient<IItemRepository, ItemRepositoryEF>()
                 .AddTransient<IReadOnlyRepository<Item>, ItemRepositoryDapper>();
+
+            
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

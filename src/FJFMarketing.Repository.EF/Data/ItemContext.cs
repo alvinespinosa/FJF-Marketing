@@ -16,11 +16,14 @@ namespace FJFMarketing.Repository.EF.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Purchase>()
+                        .HasMany(c => c.Items);
+                        
         }
 
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<Payable> Payables { get; set; }
-        public virtual DbSet<Payable> Purchases { get; set; }
+        public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<PurchaseItem> PurchaseItems { get; set; }
     }
 }
