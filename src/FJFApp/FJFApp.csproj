@@ -46,7 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\TransactionType.cs" />
     <Compile Include="Enums\Sections.cs" />
+    <Compile Include="IncomeExpenses\frmEditAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmEditAmount.Designer.cs">
+      <DependentUpon>frmEditAmount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmEntry.Designer.cs">
+      <DependentUpon>frmEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmIncomeExpense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmIncomeExpense.Designer.cs">
+      <DependentUpon>frmIncomeExpense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeExpenses\frmTransactions.Designer.cs">
+      <DependentUpon>frmTransactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeExpenses\Transaction.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +94,19 @@
     <Compile Include="Products\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\DataGridView.cs" />
+    <EmbeddedResource Include="IncomeExpenses\frmEditAmount.resx">
+      <DependentUpon>frmEditAmount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeExpenses\frmEntry.resx">
+      <DependentUpon>frmEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeExpenses\frmIncomeExpense.resx">
+      <DependentUpon>frmIncomeExpense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeExpenses\frmTransactions.resx">
+      <DependentUpon>frmTransactions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -100,7 +139,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="IncomeExpenses\" />
     <Folder Include="Payables\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

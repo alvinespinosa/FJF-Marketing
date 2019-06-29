@@ -56,18 +56,18 @@ namespace FJFApp.Products
         #region Private Method(s)
         private void InitializeCustomComponents()
         {
-            dataGridView.Columns.Add(AddColumn("Guid", 150, true));
-            dataGridView.Columns.Add(AddColumn("Category", 150));
-            dataGridView.Columns.Add(AddColumn("Item", 250));
-            dataGridView.Columns.Add(AddColumn("Unit", 50));
-            dataGridView.Columns.Add(AddColumn("Price", 50));
-            dataGridView.Columns.Add(AddColumn("Fare", 50));
-            dataGridView.Columns.Add(AddColumn("TotalCost", 50));
-            dataGridView.Columns.Add(AddColumn("SRP", 50));
-            dataGridView.Columns.Add(AddColumn("GP", 50));
-            dataGridView.Columns.Add(AddColumn("%", 50));
-            dataGridView.Columns.Add(AddColumn("Active", 50));
-            dataGridView.Columns.Add(AddColumn("Notes", 150));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Guid", 150, true));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Category", 150));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Item", 250));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Unit", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Price", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Fare", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("TotalCost", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("SRP", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("GP", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("%", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Active", 50));
+            dataGridView.Columns.Add(Utility.DataGridView.Column("Notes", 150));
 
             var sections = Enum.GetValues(typeof(Enums.Sections));
 
@@ -78,18 +78,6 @@ namespace FJFApp.Products
 
             comboBox.SelectedIndex = 0;
 
-        }
-        private DataGridViewColumn AddColumn(string headerText, int width, bool hidden = false)
-        {
-            var gridColumn = new DataGridViewColumn();
-
-            gridColumn.HeaderText = headerText;
-            gridColumn.Width = width;
-            DataGridViewCell cell = new DataGridViewTextBoxCell();
-            gridColumn.CellTemplate = cell;
-            gridColumn.Visible = !hidden;
-
-            return gridColumn;
         }
         private void Filter()
         {

@@ -1,4 +1,5 @@
-﻿using FJFApp.Products;
+﻿using FJFApp.IncomeExpenses;
+using FJFApp.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,9 @@ namespace FJFApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmProducts());
+            //Application.Run(new frmProducts());
+            //Application.Run(new frmIncomeExpense());
+            Application.Run(new frmTransactions());
         }
     }
 }
