@@ -83,6 +83,19 @@
             // CboMonth
             // 
             this.CboMonth.FormattingEnabled = true;
+            this.CboMonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
             this.CboMonth.Location = new System.Drawing.Point(6, 135);
             this.CboMonth.Name = "CboMonth";
             this.CboMonth.Size = new System.Drawing.Size(252, 28);
@@ -122,6 +135,7 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(940, 544);
             this.dataGridView.TabIndex = 8;
+            this.dataGridView.DoubleClick += new System.EventHandler(this.DataGridView_DoubleClick);
             // 
             // frmTransactions
             // 

@@ -174,8 +174,12 @@ namespace FJFApp.Products
         }
 
 
+
         #endregion
 
-       
+        private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

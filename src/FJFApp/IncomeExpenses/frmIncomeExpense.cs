@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FJFApp.Common.Forms;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,14 +11,10 @@ namespace FJFApp.IncomeExpenses
         public Transaction Transaction { get; private set; }
         public bool isCancelled { get; private set; }
 
-        public frmIncomeExpense()
+        public frmIncomeExpense(Transaction transaction = null)
         {
             InitializeComponent();
-            InitializeCustomComponents();
-            isCancelled = true;
-            this.Transaction = new Transaction();
-            LblTotalIncome.Text = Transaction.GetTotalIncome().ToString("#,##0.00");
-            LblTotalExpense.Text = Transaction.GetTotalExpense().ToString("#,##0.00");
+            InitializeCustomComponents(transaction);
             Compute();
         }
 
@@ -30,14 +27,11 @@ namespace FJFApp.IncomeExpenses
 
             if (!form.IsCancelled)
             {
-                Transaction.Incomes.Add(form.Entry);
-                LblTotalIncome.Text = Transaction.GetTotalIncome().ToString("#,##0.00");
-                Compute();
-
                 dgViewIncome.Rows.Add(
                     form.Entry.Amount.ToString("#,##0.00"),
                     form.Entry.Remarks,
                     "remove");
+                Compute();
             }
         }
 
@@ -49,14 +43,11 @@ namespace FJFApp.IncomeExpenses
 
             if (!form.IsCancelled)
             {
-                Transaction.Expenses.Add(form.Entry);
-                LblTotalExpense.Text = Transaction.GetTotalExpense().ToString("#,##0.00");
-                Compute();
-
                 dgViewExpense.Rows.Add(
                   form.Entry.Amount.ToString("#,##0.00"),
                   form.Entry.Remarks,
                   "remove");
+                Compute();
             }
         }
 
@@ -67,6 +58,31 @@ namespace FJFApp.IncomeExpenses
             Transaction.EndingBalance = decimal.Parse(LblEnding.Text);
             Transaction.Profit = decimal.Parse(LblProfit.Text);
             Transaction.Notes = TxtNotes.Text.Trim().Replace("'","''");
+            Transaction.Incomes.Clear();
+            Transaction.Expenses.Clear();
+
+            for (var row = 0; dgViewIncome.Rows.Count > row; row++)
+            {
+                Transaction.Incomes.Add(
+                    new TransactionEntry
+                    {
+                        Amount = decimal.Parse(this.dgViewIncome[0, row].Value.ToString()),
+                        Remarks = this.dgViewIncome[1, row].Value.ToString(),
+                        Type = Constants.TransactionType.Income
+                    });
+            }
+
+            for (var row = 0; dgViewExpense.Rows.Count > row; row++)
+            {
+                Transaction.Expenses.Add(
+                    new TransactionEntry
+                    {
+                        Amount = decimal.Parse(this.dgViewExpense[0, row].Value.ToString()),
+                        Remarks = this.dgViewExpense[1, row].Value.ToString(),
+                        Type = Constants.TransactionType.Income
+                    });
+            }
+
             this.Close();
         }
 
@@ -82,11 +98,11 @@ namespace FJFApp.IncomeExpenses
             if (senderGrid.Columns[2] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                var item = Transaction.Incomes.SingleOrDefault(_ =>
-                  _.Amount == decimal.Parse(dgViewIncome.Rows[e.RowIndex].Cells[0].Value.ToString()) &&
-                  _.Remarks == dgViewIncome.Rows[e.RowIndex].Cells[1].Value.ToString());
-                Transaction.Incomes.Remove(item);
-                LblTotalIncome.Text = Transaction.GetTotalIncome().ToString("#,##0.00");
+                //var item = Transaction.Incomes.SingleOrDefault(_ =>
+                //  _.Amount == decimal.Parse(dgViewIncome.Rows[e.RowIndex].Cells[0].Value.ToString()) &&
+                //  _.Remarks == dgViewIncome.Rows[e.RowIndex].Cells[1].Value.ToString());
+                //Transaction.Incomes.Remove(item);
+                //LblTotalIncome.Text = Transaction.GetTotalIncome().ToString("#,##0.00");
                 dgViewIncome.Rows.RemoveAt(e.RowIndex);
                 Compute();
             }
@@ -98,12 +114,12 @@ namespace FJFApp.IncomeExpenses
             if (senderGrid.Columns[2] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
-                var item = Transaction.Expenses.SingleOrDefault(_ =>
-                    _.Amount == decimal.Parse(dgViewExpense.Rows[e.RowIndex].Cells[0].Value.ToString()) &&
-                    _.Remarks == dgViewExpense.Rows[e.RowIndex].Cells[1].Value.ToString());
+                //var item = Transaction.Expenses.SingleOrDefault(_ =>
+                //    _.Amount == decimal.Parse(dgViewExpense.Rows[e.RowIndex].Cells[0].Value.ToString()) &&
+                //    _.Remarks == dgViewExpense.Rows[e.RowIndex].Cells[1].Value.ToString());
                 dgViewExpense.Rows.RemoveAt(e.RowIndex);
-                Transaction.Expenses.Remove(item);
-                LblTotalExpense.Text = Transaction.GetTotalExpense().ToString("#,##0.00");
+                //Transaction.Expenses.Remove(item);
+                //LblTotalExpense.Text = Transaction.GetTotalExpense().ToString("#,##0.00");
                 Compute();
             }
         }
@@ -113,7 +129,6 @@ namespace FJFApp.IncomeExpenses
             form.ShowDialog();
             if (!form.IsCancelled)
             {
-                Transaction.BeginningBalance = form.Amount;
                 LblBeginning.Text = form.Amount.ToString("#,##0.00");
                 Compute();
             }
@@ -121,8 +136,11 @@ namespace FJFApp.IncomeExpenses
         #endregion
 
         #region Private Method(s)
-        private void InitializeCustomComponents()
+        private void InitializeCustomComponents(Transaction transaction)
         {
+            isCancelled = true;
+            this.Transaction = transaction ?? new Transaction();
+
             dgViewIncome.Columns.Add(Utility.DataGridView.Column("Amount", 100));
             dgViewIncome.Columns.Add(Utility.DataGridView.Column("Remarks", 250));
             dgViewIncome.Columns.Add(Utility.DataGridView.ButtonColumn());
@@ -130,11 +148,53 @@ namespace FJFApp.IncomeExpenses
             dgViewExpense.Columns.Add(Utility.DataGridView.Column("Amount", 100));
             dgViewExpense.Columns.Add(Utility.DataGridView.Column("Remarks", 250));
             dgViewExpense.Columns.Add(Utility.DataGridView.ButtonColumn());
+
+            if (transaction != null)
+            {
+                LblBeginning.Text = transaction.BeginningBalance.ToString("#,##0.00");
+
+                foreach (var income in transaction.Incomes)
+                {
+                    dgViewIncome.Rows.Add(
+                       income.Amount.ToString("#,##0.00"),
+                       income.Remarks,
+                       "remove");
+                }
+                LblTotalIncome.Text = Transaction.GetTotalIncome().ToString("#,##0.00");
+
+                foreach (var expense in transaction.Expenses)
+                {
+                    dgViewExpense.Rows.Add(
+                       expense.Amount.ToString("#,##0.00"),
+                       expense.Remarks,
+                       "remove");
+                }
+                LblTotalExpense.Text = Transaction.GetTotalExpense().ToString("#,##0.00");
+                Compute();
+                TxtNotes.Text = transaction.Notes;
+                this.Text = this.Text + " : " + transaction.Date.ToString("MMMM d, yyyy");
+            }
         }
         private void Compute()
         {
-            var profit = decimal.Parse(LblTotalIncome.Text) - decimal.Parse(LblTotalExpense.Text);
+            decimal income = 0;
+            decimal expenses = 0;
+
+            for (var row = 0; dgViewIncome.Rows.Count > row; row++)
+            {
+                income = income + decimal.Parse(this.dgViewIncome[0, row].Value.ToString());
+            }
+
+            for (var row = 0; dgViewExpense.Rows.Count > row; row++)
+            {
+                expenses = expenses + decimal.Parse(this.dgViewExpense[0, row].Value.ToString());
+            }
+
+            var profit = income - expenses;
             var ending = profit + decimal.Parse(LblBeginning.Text);
+
+            LblTotalIncome.Text = income.ToString("#,##0.00");
+            LblTotalExpense.Text = expenses.ToString("#,##0.00");
 
             LblProfit.ForeColor = profit < 0 ? Color.Red : Color.OliveDrab;
             LblProfit.Text = profit.ToString("#,##0.00");

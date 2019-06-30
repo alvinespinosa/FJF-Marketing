@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace FJFApp.IncomeExpenses
+namespace FJFApp.Common.Forms
 {
     public partial class frmEditAmount : Form
     {

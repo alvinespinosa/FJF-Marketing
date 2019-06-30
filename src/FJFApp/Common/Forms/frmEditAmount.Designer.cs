@@ -1,4 +1,4 @@
-﻿namespace FJFApp.IncomeExpenses
+﻿namespace FJFApp.Common.Forms
 {
     partial class frmEditAmount
     {
@@ -39,7 +39,7 @@
             this.BtnUpdate.Location = new System.Drawing.Point(198, 57);
             this.BtnUpdate.Name = "BtnUpdate";
             this.BtnUpdate.Size = new System.Drawing.Size(104, 33);
-            this.BtnUpdate.TabIndex = 8;
+            this.BtnUpdate.TabIndex = 2;
             this.BtnUpdate.Text = "Update";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
@@ -56,14 +56,14 @@
             0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(400, 39);
-            this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.TabIndex = 1;
             // 
             // BtnCancel
             // 
             this.BtnCancel.Location = new System.Drawing.Point(308, 57);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(104, 33);
-            this.BtnCancel.TabIndex = 10;
+            this.BtnCancel.TabIndex = 3;
             this.BtnCancel.Text = "Cancel";
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);

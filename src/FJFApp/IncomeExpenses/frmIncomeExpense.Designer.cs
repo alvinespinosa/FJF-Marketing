@@ -252,7 +252,7 @@
             this.LblBeginning.ForeColor = System.Drawing.Color.OliveDrab;
             this.LblBeginning.Location = new System.Drawing.Point(43, 96);
             this.LblBeginning.Name = "LblBeginning";
-            this.LblBeginning.Size = new System.Drawing.Size(238, 39);
+            this.LblBeginning.Size = new System.Drawing.Size(212, 39);
             this.LblBeginning.TabIndex = 20;
             this.LblBeginning.Text = "2,500.00";
             this.LblBeginning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -314,9 +314,9 @@
             // 
             // BtnEdit
             // 
-            this.BtnEdit.Location = new System.Drawing.Point(250, 60);
+            this.BtnEdit.Location = new System.Drawing.Point(253, 96);
             this.BtnEdit.Name = "BtnEdit";
-            this.BtnEdit.Size = new System.Drawing.Size(31, 33);
+            this.BtnEdit.Size = new System.Drawing.Size(31, 39);
             this.BtnEdit.TabIndex = 27;
             this.BtnEdit.Text = "...";
             this.BtnEdit.UseVisualStyleBackColor = true;
