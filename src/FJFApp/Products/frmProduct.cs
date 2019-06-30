@@ -24,6 +24,8 @@ namespace FJFApp.Products
                 this.Text = "New Product";
                 chkActive.Enabled = false;
                 txtSection.Text = section;
+                LblCost.Visible = false;
+                txtTotalCost.Visible = false;
             }
         }
 

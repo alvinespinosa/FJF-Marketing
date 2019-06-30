@@ -52,6 +52,7 @@
     <Compile Include="Common\Forms\frmDate.Designer.cs">
       <DependentUpon>frmDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\MockData.cs" />
     <Compile Include="Constants\ErrorMessages.cs" />
     <Compile Include="Constants\TransactionType.cs" />
     <Compile Include="Enums\Sections.cs" />
@@ -86,6 +87,19 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Payables\frmPayable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payables\frmPayable.Designer.cs">
+      <DependentUpon>frmPayable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payables\frmPayables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payables\frmPayables.Designer.cs">
+      <DependentUpon>frmPayables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payables\Payable.cs" />
     <Compile Include="Products\frmProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +134,12 @@
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Payables\frmPayable.resx">
+      <DependentUpon>frmPayable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payables\frmPayables.resx">
+      <DependentUpon>frmPayables.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Products\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,8 +168,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Payables\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

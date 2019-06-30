@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProduct));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtUnit = new System.Windows.Forms.TextBox();
             this.cboCategory = new System.Windows.Forms.ComboBox();
             this.numSRP = new System.Windows.Forms.NumericUpDown();
             this.numCost = new System.Windows.Forms.NumericUpDown();
@@ -38,7 +39,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.LblCost = new System.Windows.Forms.Label();
             this.txtTotalCost = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.tsBtnSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsBtnCancel = new System.Windows.Forms.ToolStripButton();
-            this.txtUnit = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSRP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCost)).BeginInit();
@@ -71,7 +71,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtNotes);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.LblCost);
             this.groupBox1.Controls.Add(this.txtTotalCost);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -87,9 +87,18 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // txtUnit
+            // 
+            this.txtUnit.Location = new System.Drawing.Point(23, 256);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.Size = new System.Drawing.Size(340, 26);
+            this.txtUnit.TabIndex = 3;
+            // 
             // cboCategory
             // 
             this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Items.AddRange(new object[] {
+            "BATTERY"});
             this.cboCategory.Location = new System.Drawing.Point(417, 85);
             this.cboCategory.Name = "cboCategory";
             this.cboCategory.Size = new System.Drawing.Size(336, 28);
@@ -173,14 +182,14 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "SRP";
             // 
-            // label7
+            // LblCost
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(623, 301);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 20);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Total Cost";
+            this.LblCost.AutoSize = true;
+            this.LblCost.Location = new System.Drawing.Point(623, 301);
+            this.LblCost.Name = "LblCost";
+            this.LblCost.Size = new System.Drawing.Size(81, 20);
+            this.LblCost.TabIndex = 13;
+            this.LblCost.Text = "Total Cost";
             // 
             // txtTotalCost
             // 
@@ -268,7 +277,7 @@
             this.tsBtnCancel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1241, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(1241, 34);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -284,7 +293,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 32);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 34);
             // 
             // tsBtnCancel
             // 
@@ -294,13 +303,6 @@
             this.tsBtnCancel.Size = new System.Drawing.Size(91, 29);
             this.tsBtnCancel.Text = "Cancel";
             this.tsBtnCancel.Click += new System.EventHandler(this.tsBtnCancel_Click);
-            // 
-            // txtUnit
-            // 
-            this.txtUnit.Location = new System.Drawing.Point(23, 256);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(340, 26);
-            this.txtUnit.TabIndex = 3;
             // 
             // frmProduct
             // 
@@ -336,7 +338,7 @@
         private System.Windows.Forms.TextBox txtItem;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LblCost;
         private System.Windows.Forms.TextBox txtTotalCost;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;

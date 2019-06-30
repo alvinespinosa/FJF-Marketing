@@ -1,4 +1,5 @@
-﻿using FJFApp.Common.Forms;
+﻿using FJFApp.Common;
+using FJFApp.Common.Forms;
 using FJFApp.Constants;
 using System;
 using System.Collections.Generic;
@@ -151,118 +152,10 @@ namespace FJFApp.IncomeExpenses
                 Filter();
             }
         }
-        #endregion        
-
-        #region Mock
-
         private void GetTransactions()
         {
-            var transactions = new List<Transaction>();
-
-            transactions.Add(new Transaction()
-            {
-                Id = Guid.NewGuid(),
-                Date = new DateTime(2019,5,10),
-                BeginningBalance = 2500,
-                EndingBalance = 1500,
-                Profit = 600,
-                Incomes = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 1500,
-                        Remarks = "Test1"
-                    }
-                },
-                Expenses = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 1500,
-                        Remarks = "Test1"
-                    }
-                },
-                Notes = "test only11111111"
-            });
-            transactions.Add(new Transaction()
-            {
-                Id = Guid.NewGuid(),
-                Date = new DateTime(2019, 5, 22),
-                BeginningBalance = 6500,
-                EndingBalance = 100,
-                Profit = 100,
-                Incomes = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 400,
-                        Remarks = "Test2"
-                    }
-                },
-                Expenses = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 300,
-                        Remarks = "Test1"
-                    }
-                },
-                Notes = "test only"
-            });
-
-            transactions.Add(new Transaction()
-            {
-                Id = Guid.NewGuid(),
-                Date = new DateTime(2019, 6, 19),
-                BeginningBalance = 6500,
-                EndingBalance = 100,
-                Profit = 100,
-                Incomes = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 400,
-                        Remarks = "Test2"
-                    }
-                },
-                Expenses = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 300,
-                        Remarks = "Test1"
-                    }
-                },
-                Notes = "test only"
-            });
-            transactions.Add(new Transaction()
-            {
-                Id = Guid.NewGuid(),
-                Date = new DateTime(2019, 6, 14),
-                BeginningBalance = 6500,
-                EndingBalance = 100,
-                Profit = 100,
-                Incomes = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 400,
-                        Remarks = "Test2"
-                    }
-                },
-                Expenses = new List<TransactionEntry>()
-                {
-                    new TransactionEntry
-                    {
-                        Amount = 300,
-                        Remarks = "Test1"
-                    }
-                },
-                Notes = "test only"
-            });
-
-            this._transactions.AddRange(transactions);
+            this._transactions.AddRange(MockData.Transactions());
         }
-        #endregion      
+        #endregion
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FJFApp.IncomeExpenses;
+using FJFApp.Payables;
+using FJFApp.Products;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +22,29 @@ namespace FJFApp
 
         private void Main_Load(object sender, EventArgs e)
         {
-            tabControl.Height = this.Height;
-            tabControl.Width = this.Width;
-            tabControl.Top = 1;
-            tabControl.Left = 1;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            var form = new frmProducts();
+            form.ShowDialog();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            var form = new frmTransactions();
+            form.ShowDialog();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            var form = new frmPayables();
+            form.ShowDialog();
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

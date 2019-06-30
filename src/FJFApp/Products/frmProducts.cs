@@ -1,4 +1,5 @@
-﻿using FJFApp.Model.Products;
+﻿using FJFApp.Common;
+using FJFApp.Model.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -134,52 +135,10 @@ namespace FJFApp.Products
 
             // ToDo: Update the list
         }
-        #endregion        
-
-        #region Mock
-
         private void GetProducts()
         {
-            var products = new List<Product>();
-
-            products.Add(new Product()
-            {
-                Id  = Guid.NewGuid(),
-                Section = "Hardware",
-                Category = "BATTERY",
-                Item = "ANGLE BAR 5.0 X 25 WHITE",
-                Unit = "PCS",
-                Srp = 590,
-                Fare = 20,
-                Price = 469,
-                Active = true,
-                Notes = "test only"                
-            });
-
-            products.Add(new Product()
-            {
-                Id = Guid.NewGuid(),
-                Section = "Hardware",
-                Category = "BATTERY",
-                Item = "ANGLE BAR 3.5 X 38 GREEN",
-                Unit = "PCS",
-                Srp = 580,
-                Fare = 15,
-                Price = 453,
-                Active = false,
-                Notes = "test only 123"
-            });
-
-            this.products.AddRange(products);
+            this.products.AddRange(MockData.Products());
         }
-
-
-
         #endregion
-
-        private void DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }

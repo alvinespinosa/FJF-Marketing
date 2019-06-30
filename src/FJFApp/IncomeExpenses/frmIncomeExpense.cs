@@ -67,7 +67,7 @@ namespace FJFApp.IncomeExpenses
                     new TransactionEntry
                     {
                         Amount = decimal.Parse(this.dgViewIncome[0, row].Value.ToString()),
-                        Remarks = this.dgViewIncome[1, row].Value.ToString(),
+                        Remarks = dgViewIncome[1, row].Value.ToString(),
                         Type = Constants.TransactionType.Income
                     });
             }
@@ -182,12 +182,12 @@ namespace FJFApp.IncomeExpenses
 
             for (var row = 0; dgViewIncome.Rows.Count > row; row++)
             {
-                income = income + decimal.Parse(this.dgViewIncome[0, row].Value.ToString());
+                income = income + decimal.Parse(dgViewIncome[0, row].Value.ToString());
             }
 
             for (var row = 0; dgViewExpense.Rows.Count > row; row++)
             {
-                expenses = expenses + decimal.Parse(this.dgViewExpense[0, row].Value.ToString());
+                expenses = expenses + decimal.Parse(dgViewExpense[0, row].Value.ToString());
             }
 
             var profit = income - expenses;
